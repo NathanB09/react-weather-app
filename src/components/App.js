@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
-import { KEY } from './api-key'
-import Weather from './components/Weather';
-import Form from './components/Form';
-import Title from './components/Title';
+import { KEY } from '../api-key'
+import Weather from './Weather';
+import Form from './Form';
+import Title from './Title';
 
 class App extends Component {
 
