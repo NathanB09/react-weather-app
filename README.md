@@ -4,4 +4,4 @@ This is a simple weather app created using React. The API used can be found [her
 
 ## Preview
 
-![preview of the finished project](https://imgur.com/ApciXqA)
+![preview of the finished project](https://i.imgur.com/ApciXqA.png)
