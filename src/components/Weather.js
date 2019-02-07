@@ -1,12 +1,14 @@
 import React from 'react';
+import './Weather.css'
 
-const Weather = ({ city, country, temp, humidity, conditions }) => {
+const Weather = ({ city, country, temp, humidity, conditions, error }) => {
   return (
-    <div>
-      {city && <p>Location: {city}, {country}</p>}
-      {temp && <p>Temperature: {temp} °C</p>}
-      {humidity && <p>Humidity: {humidity} %</p>}
-      {conditions && <p>Conditions: {conditions}</p>}
+    <div className='display'>
+      {!city && error && <p className='error'>Not Found</p>}
+      {city && <p><strong>Location:</strong> <span>{city}, {country}</span></p>}
+      {temp && <p><strong>Temperature:</strong> <span>{temp} °C</span></p>}
+      {humidity && <p><strong>Humidity:</strong> <span>{humidity} %</span></p>}
+      {conditions && <p><strong>Conditions:</strong> <span>{conditions}</span></p>}
     </div>
   );
 };
