@@ -12,41 +12,59 @@ class App extends Component {
     country: undefined,
     temp: undefined,
     humidity: undefined,
-    conditions: undefined
+    conditions: undefined,
+    error: undefined
   }
 
-  handleSubmit = (e) => {
-    e.preventDefault()
-    const city = e.target.city.value
-    const country = e.target.country.value
+  handleSubmit = (event) => {
+    event.preventDefault()
+    const city = event.target.city.value
+    const country = event.target.country.value
     const url = `http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&units=metric&APPID=${KEY}`
 
     fetch(url)
       .then(resp => resp.json())
-      .then(data => this.setState({
-        city: data.name,
-        country: data.sys.country,
-        temp: data.main.temp,
-        humidity: data.main.humidity,
-        conditions: data.weather[0].description
-      }))
+      .then(data => {
+        if (data.name) {
+          this.setState({
+            city: data.name,
+            country: data.sys.country,
+            temp: data.main.temp,
+            humidity: data.main.humidity,
+            conditions: data.weather[0].description
+          })
+        } else {
+          this.setState({ error: 'Not Found' })
+        }
+      })
+    event.target.reset()
   }
 
   render() {
     return (
-      <div className="App">
-        <Title />
-        <Form handleSubmit={this.handleSubmit} />
-        <Weather
-          city={this.state.city}
-          country={this.state.country}
-          temp={this.state.temp}
-          humidity={this.state.humidity}
-          conditions={this.state.conditions}
-        />
+      <div className="app-wrapper">
+        <div className='container'>
+          <div className='row'>
+            <div className='col-4'>
+              <Title />
+            </div>
+            <div className='col-8'>
+              <Form handleSubmit={this.handleSubmit} />
+              <Weather
+                city={this.state.city}
+                country={this.state.country}
+                temp={this.state.temp}
+                humidity={this.state.humidity}
+                conditions={this.state.conditions}
+                error={this.state.error}
+              />
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
+
 }
 
 export default App;
