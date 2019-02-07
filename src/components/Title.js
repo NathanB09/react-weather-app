@@ -1,10 +1,11 @@
 import React from 'react';
+import './Title.css'
 
 const Title = () => {
   return (
-    <div>
-      <h1>Current Weather</h1>
-      <p>Enter your location for current weather conditions</p>
+    <div className='title'>
+      <h1>Your Weather</h1>
+      <p>Current weather conditions in your city!</p>
     </div>
   );
 };
