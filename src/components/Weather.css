@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
+
+.display {
+  margin-left: 70px;
+  margin-top: 40px;
+  margin-right: 70px;
+}
+
+.display p {
+  color: #5bc0de;
+  font-size: 25px;
+  font-family: 'Quicksand', sans-serif;
+  /* border-bottom: 1px solid #5bc0de; */
+  margin-top: 40px;
+
+  background:
+    linear-gradient(to right, #5bc0de, rgba(255, 255, 255, 0.04))
+    left 
+    bottom  
+    no-repeat; 
+  background-size: 100% 1px ;
+}
+
+.display p span {
+  color: #fff;
+}
+
+.display p.error {
+  border: none;
+  color: red;
+}
